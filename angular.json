@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Git-app"
+    }
+  },
+  "defaultProject": "Git-app",
+  "cli": {
+    "analytics": false
+  }
 }

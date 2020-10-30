@@ -1,0 +1,51 @@
+<div class="container">
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search Profile" aria-label="Search" [(ngModel)]= "username" name="username" (keyup)="findProfile()">
+    <button class="btn btn-outline-info my-2 my-sm-0" type="submit"></button>
+  </form>
+</nav>
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4"><br>
+    <img src="{{profile.avatar_url}}"  height="400px" width="400px" alt="Profile_image">
+  </div><br>
+</div>
+
+    <div class="panel-heading">
+      <h5>{{profile.name}}</h5> ({{profile.login}})
+      <h5 *ngIf="profile.company"> Works at {{profile.company}}</h5>
+      <h5>{{profile.location}} </h5>
+    </div>
+    <div class="row">
+          <div class="">
+      <div class="text-center col-md-6">
+        <ul class='list-group'>
+          <li class="list-group-item" *ngIf="profile.bio">{{profile.bio}}</li>
+        </ul>
+      </div>
+  </div>
+      <div class="col-md-4 col-md-6">
+          <p><br>
+            <span class="btn-info btn-lg">  {{ profile.followers }} Followers</span>
+            <span class="btn-secondary btn-lg"> Following {{ profile.following }}</span>
+            <span class="btn-primary btn-lg">Repositories {{ profile.public_repos }}</span>
+          </p>
+         <p><a href="{{profile.html_url}}" target="_blank" class="btn-success btn-lg"  > View profile</a></p>
+        </div>
+
+        <div class="row">
+          <div class= col-md-6>
+        <div class="card-body " >Repositories
+       <div class="card" style="width: 18rem;">
+          <div class="card-body" *ngFor = "let repo of repos">
+            <h2>{{repo.name}}</h2>
+            <a href="{{repo.html_url}}" target="_blank" class="btn btn-outline-primary">View this project</a>
+            <p class="card-text">{{repo.description }}</p>
+          </div>
+       </div>
+      </div>
+      </div>
+      </div>
+
